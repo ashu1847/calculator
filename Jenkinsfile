@@ -4,6 +4,7 @@ pipeline {
           stage("Compile") {
                steps {
 		    sh "chmod +x ./gradlew"   
+		    sh "./gradlew wrapper --gradle-version 6.0.1"
                     sh "./gradlew compileJava"
                }
           }
