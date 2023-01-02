@@ -8,6 +8,7 @@ pipeline {
               sh "./gradlew compileJava"
                }
           }
+     }
 		  
 stage("Package") {
      steps {
@@ -23,5 +24,4 @@ stage("Docker build") {
 }
 
 
-}
 }
