@@ -5,16 +5,9 @@ pipeline {
                steps {
 		    sh "chmod +x ./gradlew"   
 		    sh "./gradlew wrapper --gradle-version 6.0.1"
-                    sh "./gradlew compileJava"
+              sh "./gradlew compileJava"
                }
           }
-         
-		   //stage("Code coverage") {
-  //   steps {
-         // sh "./gradlew jacocoTestReport"
-         // sh "./gradlew jacocoTestCoverageVerification"
-     //}z
-//}
 		  
 stage("Package") {
      steps {
@@ -29,31 +22,6 @@ stage("Docker build") {
      }
 }
 
-stage("Docker push") {
-     steps {
-	  //sh "docker login -u nikhilnidhi -p chinki12"
 
-          //sh "docker push nikhilnidhi/calculator_1"
-     }
-}
-stage("Deploy to staging") {
-     steps {
-	
-         // sh "docker run -d --rm -p 8765:8080 --name calculator_1 nikhilnidhi/calculator_1"
-		// sh "docker-compose up -d"
-     }
-}
-
-stage("Acceptance test") {
-     steps {
-          //sleep 60
-          //sh "./acceptance_test_docker.sh"
-     }
-}
-     }
-	 post {
-     always {
-         //sh "docker-compose down"
-     }
 }
 }
